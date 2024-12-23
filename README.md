@@ -9,5 +9,5 @@ Download dvs gesture dataset from spiking jelly library, and Resnet18 from pytor
 Set data paths in custom_train.py file.
 
 
-**Acknowledgements**
+### Acknowledgements
 We have used [Parametric-Leaky-Integrate-and-Fire-Spiking-Neuron](https://github.com/fangwei123456/Parametric-Leaky-Integrate-and-Fire-Spiking-Neuron/) code, and [syops-counter](https://github.com/iCGY96/syops-counter) for energy calculation.
