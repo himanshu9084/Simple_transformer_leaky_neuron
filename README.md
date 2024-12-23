@@ -1,5 +1,7 @@
 # Simple_transformer_leaky_neuron
 
+Code for the paper : Simple Transformer with Single Leaky Neuron for Event Vision.
+
 
 For training : python custom_train.py
 
