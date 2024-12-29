@@ -11,8 +11,6 @@ Code for the paper: **Simple Transformer with Single Leaky Neuron for Event Visi
 - [Citation](#citation)
 - [Acknowledgements](#acknowledgements)
 
----
-
 ## Installation
 
 1. Install [spikingjelly](https://github.com/fangwei123456/spikingjelly)
