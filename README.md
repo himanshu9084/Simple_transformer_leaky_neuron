@@ -3,11 +3,27 @@
 Code for the paper : **Simple Transformer with Single Leaky Neuron for Event Vision**.
 
 
-For training : python custom_train.py
+## Installation
 
-Download dvs gesture dataset from spiking jelly library, and Resnet18 from pytorch.
-Set data paths in custom_train.py file.
+* Install [spikingjelly](https://github.com/fangwei123456/spikingjelly) from Github only.
+* Install rest of the packages as mentioned in requirements.txt .
 
+## Dataset Setup
+* Download DVS Gesture, N-MNIST, CIFAR10-DVS dataset from spiking jelly library manually. Download links are available at [repo](https://github.com/fangwei123456/spikingjelly/tree/master/spikingjelly/datasets).
+* Setup datasets in event_vision/datasets/ folder. The code will automatically create frame based version of datasets.
+
+## Executing program
+
+* Download pretrained Resnet18 and Resnet50 weights from pytorch.
+* Set data paths in custom_train.py file.
+* For training
+```
+python custom_train.py
+```
+* Logs will be generated in logs/ folder.
+
+## EVGen paper
+If you find this code useful in your research, please consider citing:
 
 ## Acknowledgements
 
