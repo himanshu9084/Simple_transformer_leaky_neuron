@@ -1,6 +1,7 @@
 # Simple Transformer with Single Leaky Neuron for Event Vision
 
 Code for the paper: **Simple Transformer with Single Leaky Neuron for Event Vision** 
+
 Accepted in **EVGEN: Event-based Vision in the Era of Generative AI - Transforming Perception and Visual Innovation Workshop, WACV 2025.**
 
 
