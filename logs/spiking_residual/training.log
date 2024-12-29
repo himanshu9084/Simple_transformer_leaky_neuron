@@ -1,0 +1,501 @@
+29-12-2024 19:54:00 INFO     Start time : 29/12/2024 19:54:00
+29-12-2024 19:54:00 INFO     True
+29-12-2024 19:54:00 INFO     2
+29-12-2024 19:54:00 INFO     0
+29-12-2024 19:54:00 INFO     <torch.cuda.device object at 0x7ff16898f1c0>
+29-12-2024 19:54:00 INFO     NVIDIA A100-PCIE-40GB
+29-12-2024 19:54:00 INFO     
+
+
+29-12-2024 19:54:00 INFO     29122024_19_54_00
+29-12-2024 19:54:00 INFO     Logs at : ./logs/29122024_19_54_00
+29-12-2024 19:54:00 INFO     Namespace(T=20, device='cuda:1', b=64, epochs=1024, j=4, channels=128, data_dir='/data01/ucidata/event_vision/datasets/dvsgesture/', out_dir='./logs', resume=None, amp=False, cupy=False, init_tau=2.0, use_plif=True, alpha_learnable=False, use_max_pool=True, number_layer=5, detach_reset=True, opt='adam', lr=0.001, momentum=0.9, lr_scheduler='CosALR', step_size=32, gamma=0.1, T_max=64, model_name='simple_transformer', dataset='dvsgesture', seed=2020)
+29-12-2024 19:54:00 INFO     DVS Gesture Dataset : 11 classes
+29-12-2024 19:54:00 INFO     train samples = 1176, test samples = 288
+29-12-2024 19:54:00 INFO     total samples = 1464
+29-12-2024 19:54:01 INFO     simple_transformer
+29-12-2024 19:54:01 INFO     
+Simple_SNN(
+  (feature_extractor): Resnet_extractor(
+    (backbone): ResNet(
+      (conv1): Conv2d(2, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Identity()
+    )
+  )
+  (temporal_processor): temporal_processor(
+    (fc1): Linear(in_features=512, out_features=256, bias=True)
+    (lif): ResidualSpikingLayer(
+      (lif1): PLIFNode(
+        v_threshold=1.0, v_reset=0.0, tau=2.0
+        (surrogate_function): ATan(alpha=2.0, spiking=True)
+      )
+      (fc): Linear(in_features=256, out_features=256, bias=True)
+      (lif2): PLIFNode(
+        v_threshold=1.0, v_reset=0.0, tau=2.0
+        (surrogate_function): ATan(alpha=2.0, spiking=True)
+      )
+    )
+  )
+  (spiking_transformer): Simple_Transformer(
+    (encoder1): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+      )
+      (linear1): Linear(in_features=256, out_features=2048, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=2048, out_features=256, bias=True)
+      (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (encoder2): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (linear1): Linear(in_features=256, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=256, bias=True)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (fc): Linear(in_features=256, out_features=11, bias=True)
+)
+29-12-2024 19:54:02 INFO     Number of parameters : 15318541
+29-12-2024 19:54:02 INFO     Number of trainable parameters : 15318541
+29-12-2024 19:54:09 INFO     Epoch 0, train_loss : 0.4659588382475906
+29-12-2024 19:54:09 INFO     Epoch 0, train_acc : 0.1640625
+29-12-2024 19:54:11 INFO     Epoch 0, test_loss : 0.09874540070692699
+29-12-2024 19:54:11 INFO     Epoch 0, test_acc : 0.08333333333333333
+29-12-2024 19:54:11 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:54:11 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:54:11 INFO     epoch = 0, train_loss = 0.4660, train_acc = 0.1641, test_loss = 0.0987, test_acc = 0.0833, max_test_acc = 0.0833
+29-12-2024 19:54:11 INFO     train speed = 170.7388 images/s, test speed = 161.2874 images/s
+29-12-2024 19:54:11 INFO     escape time = 2024-12-29 22:32:15
+
+29-12-2024 19:54:17 INFO     Epoch 1, train_loss : 0.08822638541460037
+29-12-2024 19:54:17 INFO     Epoch 1, train_acc : 0.1753472222222222
+29-12-2024 19:54:19 INFO     Epoch 1, test_loss : 0.08014497574832705
+29-12-2024 19:54:19 INFO     Epoch 1, test_acc : 0.3263888888888889
+29-12-2024 19:54:19 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:54:20 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:54:20 INFO     epoch = 1, train_loss = 0.0882, train_acc = 0.1753, test_loss = 0.0801, test_acc = 0.3264, max_test_acc = 0.3264
+29-12-2024 19:54:20 INFO     train speed = 194.7787 images/s, test speed = 172.9414 images/s
+29-12-2024 19:54:20 INFO     escape time = 2024-12-29 22:18:07
+
+29-12-2024 19:54:26 INFO     Epoch 2, train_loss : 0.07295750847293271
+29-12-2024 19:54:26 INFO     Epoch 2, train_acc : 0.3671875
+29-12-2024 19:54:27 INFO     Epoch 2, test_loss : 0.06097314920690325
+29-12-2024 19:54:27 INFO     Epoch 2, test_acc : 0.5104166666666666
+29-12-2024 19:54:28 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:54:28 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:54:28 INFO     epoch = 2, train_loss = 0.0730, train_acc = 0.3672, test_loss = 0.0610, test_acc = 0.5104, max_test_acc = 0.5104
+29-12-2024 19:54:28 INFO     train speed = 198.7548 images/s, test speed = 157.4189 images/s
+29-12-2024 19:54:28 INFO     escape time = 2024-12-29 22:18:44
+
+29-12-2024 19:54:34 INFO     Epoch 3, train_loss : 0.05438629392948416
+29-12-2024 19:54:34 INFO     Epoch 3, train_acc : 0.5720486111111112
+29-12-2024 19:54:36 INFO     Epoch 3, test_loss : 0.04910578537318441
+29-12-2024 19:54:36 INFO     Epoch 3, test_acc : 0.6493055555555556
+29-12-2024 19:54:36 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:54:37 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:54:37 INFO     epoch = 3, train_loss = 0.0544, train_acc = 0.5720, test_loss = 0.0491, test_acc = 0.6493, max_test_acc = 0.6493
+29-12-2024 19:54:37 INFO     train speed = 197.0291 images/s, test speed = 157.1754 images/s
+29-12-2024 19:54:37 INFO     escape time = 2024-12-29 22:20:14
+
+29-12-2024 19:54:43 INFO     Epoch 4, train_loss : 0.041820490525828466
+29-12-2024 19:54:43 INFO     Epoch 4, train_acc : 0.7239583333333334
+29-12-2024 19:54:45 INFO     Epoch 4, test_loss : 0.045944715953535505
+29-12-2024 19:54:45 INFO     Epoch 4, test_acc : 0.6805555555555556
+29-12-2024 19:54:45 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:54:46 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:54:46 INFO     epoch = 4, train_loss = 0.0418, train_acc = 0.7240, test_loss = 0.0459, test_acc = 0.6806, max_test_acc = 0.6806
+29-12-2024 19:54:46 INFO     train speed = 197.1942 images/s, test speed = 141.2164 images/s
+29-12-2024 19:54:46 INFO     escape time = 2024-12-29 22:23:02
+
+29-12-2024 19:54:51 INFO     Epoch 5, train_loss : 0.0314255239855912
+29-12-2024 19:54:51 INFO     Epoch 5, train_acc : 0.8020833333333334
+29-12-2024 19:54:53 INFO     Epoch 5, test_loss : 0.04625840360919634
+29-12-2024 19:54:53 INFO     Epoch 5, test_acc : 0.6388888888888888
+29-12-2024 19:54:54 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:54:54 INFO     epoch = 5, train_loss = 0.0314, train_acc = 0.8021, test_loss = 0.0463, test_acc = 0.6389, max_test_acc = 0.6806
+29-12-2024 19:54:54 INFO     train speed = 205.1652 images/s, test speed = 143.4829 images/s
+29-12-2024 19:54:54 INFO     escape time = 2024-12-29 22:10:52
+
+29-12-2024 19:55:00 INFO     Epoch 6, train_loss : 0.024711571012934048
+29-12-2024 19:55:00 INFO     Epoch 6, train_acc : 0.8020833333333334
+29-12-2024 19:55:01 INFO     Epoch 6, test_loss : 0.04016206579075919
+29-12-2024 19:55:01 INFO     Epoch 6, test_acc : 0.7048611111111112
+29-12-2024 19:55:02 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:55:02 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:02 INFO     epoch = 6, train_loss = 0.0247, train_acc = 0.8021, test_loss = 0.0402, test_acc = 0.7049, max_test_acc = 0.7049
+29-12-2024 19:55:02 INFO     train speed = 191.3527 images/s, test speed = 172.5637 images/s
+29-12-2024 19:55:02 INFO     escape time = 2024-12-29 22:18:08
+
+29-12-2024 19:55:07 INFO     Epoch 7, train_loss : 0.023079701906277075
+29-12-2024 19:55:07 INFO     Epoch 7, train_acc : 0.8133680555555556
+29-12-2024 19:55:09 INFO     Epoch 7, test_loss : 0.03328390316002899
+29-12-2024 19:55:09 INFO     Epoch 7, test_acc : 0.7152777777777778
+29-12-2024 19:55:09 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:55:10 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:10 INFO     epoch = 7, train_loss = 0.0231, train_acc = 0.8134, test_loss = 0.0333, test_acc = 0.7153, max_test_acc = 0.7153
+29-12-2024 19:55:10 INFO     train speed = 210.3253 images/s, test speed = 179.6937 images/s
+29-12-2024 19:55:10 INFO     escape time = 2024-12-29 22:10:18
+
+29-12-2024 19:55:16 INFO     Epoch 8, train_loss : 0.02130309073254466
+29-12-2024 19:55:16 INFO     Epoch 8, train_acc : 0.8211805555555556
+29-12-2024 19:55:17 INFO     Epoch 8, test_loss : 0.047847097325656146
+29-12-2024 19:55:17 INFO     Epoch 8, test_acc : 0.65625
+29-12-2024 19:55:18 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:18 INFO     epoch = 8, train_loss = 0.0213, train_acc = 0.8212, test_loss = 0.0478, test_acc = 0.6562, max_test_acc = 0.7153
+29-12-2024 19:55:18 INFO     train speed = 203.8578 images/s, test speed = 175.1510 images/s
+29-12-2024 19:55:18 INFO     escape time = 2024-12-29 22:05:09
+
+29-12-2024 19:55:23 INFO     Epoch 9, train_loss : 0.021290994559725124
+29-12-2024 19:55:23 INFO     Epoch 9, train_acc : 0.8307291666666666
+29-12-2024 19:55:24 INFO     Epoch 9, test_loss : 0.054647943211926356
+29-12-2024 19:55:24 INFO     Epoch 9, test_acc : 0.6145833333333334
+29-12-2024 19:55:25 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:25 INFO     epoch = 9, train_loss = 0.0213, train_acc = 0.8307, test_loss = 0.0546, test_acc = 0.6146, max_test_acc = 0.7153
+29-12-2024 19:55:25 INFO     train speed = 221.3959 images/s, test speed = 187.5251 images/s
+29-12-2024 19:55:25 INFO     escape time = 2024-12-29 21:56:41
+
+29-12-2024 19:55:30 INFO     Epoch 10, train_loss : 0.020568805643253855
+29-12-2024 19:55:30 INFO     Epoch 10, train_acc : 0.8697916666666666
+29-12-2024 19:55:32 INFO     Epoch 10, test_loss : 0.025596049510770373
+29-12-2024 19:55:32 INFO     Epoch 10, test_acc : 0.8090277777777778
+29-12-2024 19:55:32 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:55:32 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:32 INFO     epoch = 10, train_loss = 0.0206, train_acc = 0.8698, test_loss = 0.0256, test_acc = 0.8090, max_test_acc = 0.8090
+29-12-2024 19:55:32 INFO     train speed = 215.7936 images/s, test speed = 195.3023 images/s
+29-12-2024 19:55:32 INFO     escape time = 2024-12-29 22:02:02
+
+29-12-2024 19:55:37 INFO     Epoch 11, train_loss : 0.01682422377376093
+29-12-2024 19:55:37 INFO     Epoch 11, train_acc : 0.8897569444444444
+29-12-2024 19:55:39 INFO     Epoch 11, test_loss : 0.033578171912166804
+29-12-2024 19:55:39 INFO     Epoch 11, test_acc : 0.7604166666666666
+29-12-2024 19:55:39 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:39 INFO     epoch = 11, train_loss = 0.0168, train_acc = 0.8898, test_loss = 0.0336, test_acc = 0.7604, max_test_acc = 0.8090
+29-12-2024 19:55:39 INFO     train speed = 230.2576 images/s, test speed = 173.3407 images/s
+29-12-2024 19:55:39 INFO     escape time = 2024-12-29 21:54:03
+
+29-12-2024 19:55:44 INFO     Epoch 12, train_loss : 0.015339201626678308
+29-12-2024 19:55:44 INFO     Epoch 12, train_acc : 0.8914930555555556
+29-12-2024 19:55:46 INFO     Epoch 12, test_loss : 0.020998398669891886
+29-12-2024 19:55:46 INFO     Epoch 12, test_acc : 0.8402777777777778
+29-12-2024 19:55:46 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:55:46 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:46 INFO     epoch = 12, train_loss = 0.0153, train_acc = 0.8915, test_loss = 0.0210, test_acc = 0.8403, max_test_acc = 0.8403
+29-12-2024 19:55:46 INFO     train speed = 236.1982 images/s, test speed = 172.8275 images/s
+29-12-2024 19:55:46 INFO     escape time = 2024-12-29 21:57:20
+
+29-12-2024 19:55:51 INFO     Epoch 13, train_loss : 0.01394602113092939
+29-12-2024 19:55:51 INFO     Epoch 13, train_acc : 0.9053819444444444
+29-12-2024 19:55:53 INFO     Epoch 13, test_loss : 0.022819545947843127
+29-12-2024 19:55:53 INFO     Epoch 13, test_acc : 0.8472222222222222
+29-12-2024 19:55:53 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:55:54 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:55:54 INFO     epoch = 13, train_loss = 0.0139, train_acc = 0.9054, test_loss = 0.0228, test_acc = 0.8472, max_test_acc = 0.8472
+29-12-2024 19:55:54 INFO     train speed = 231.7533 images/s, test speed = 168.9638 images/s
+29-12-2024 19:55:54 INFO     escape time = 2024-12-29 22:00:24
+
+29-12-2024 19:55:59 INFO     Epoch 14, train_loss : 0.011369004121257199
+29-12-2024 19:55:59 INFO     Epoch 14, train_acc : 0.9201388888888888
+29-12-2024 19:56:01 INFO     Epoch 14, test_loss : 0.025678771651453443
+29-12-2024 19:56:01 INFO     Epoch 14, test_acc : 0.8090277777777778
+29-12-2024 19:56:01 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:01 INFO     epoch = 14, train_loss = 0.0114, train_acc = 0.9201, test_loss = 0.0257, test_acc = 0.8090, max_test_acc = 0.8472
+29-12-2024 19:56:01 INFO     train speed = 226.7408 images/s, test speed = 167.8448 images/s
+29-12-2024 19:56:01 INFO     escape time = 2024-12-29 21:56:10
+
+29-12-2024 19:56:06 INFO     Epoch 15, train_loss : 0.00900837235773603
+29-12-2024 19:56:06 INFO     Epoch 15, train_acc : 0.9609375
+29-12-2024 19:56:08 INFO     Epoch 15, test_loss : 0.024148829695251253
+29-12-2024 19:56:08 INFO     Epoch 15, test_acc : 0.8541666666666666
+29-12-2024 19:56:08 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:56:08 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:08 INFO     epoch = 15, train_loss = 0.0090, train_acc = 0.9609, test_loss = 0.0241, test_acc = 0.8542, max_test_acc = 0.8542
+29-12-2024 19:56:08 INFO     train speed = 215.8351 images/s, test speed = 198.9171 images/s
+29-12-2024 19:56:08 INFO     escape time = 2024-12-29 22:01:04
+
+29-12-2024 19:56:14 INFO     Epoch 16, train_loss : 0.004783276843631433
+29-12-2024 19:56:14 INFO     Epoch 16, train_acc : 0.9887152777777778
+29-12-2024 19:56:15 INFO     Epoch 16, test_loss : 0.014437538468175463
+29-12-2024 19:56:15 INFO     Epoch 16, test_acc : 0.9131944444444444
+29-12-2024 19:56:15 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:56:16 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:16 INFO     epoch = 16, train_loss = 0.0048, train_acc = 0.9887, test_loss = 0.0144, test_acc = 0.9132, max_test_acc = 0.9132
+29-12-2024 19:56:16 INFO     train speed = 222.4855 images/s, test speed = 194.1835 images/s
+29-12-2024 19:56:16 INFO     escape time = 2024-12-29 21:59:29
+
+29-12-2024 19:56:21 INFO     Epoch 17, train_loss : 0.004311627837725812
+29-12-2024 19:56:21 INFO     Epoch 17, train_acc : 0.9878472222222222
+29-12-2024 19:56:22 INFO     Epoch 17, test_loss : 0.020848285510308213
+29-12-2024 19:56:22 INFO     Epoch 17, test_acc : 0.8645833333333334
+29-12-2024 19:56:23 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:23 INFO     epoch = 17, train_loss = 0.0043, train_acc = 0.9878, test_loss = 0.0208, test_acc = 0.8646, max_test_acc = 0.9132
+29-12-2024 19:56:23 INFO     train speed = 231.1456 images/s, test speed = 184.7961 images/s
+29-12-2024 19:56:23 INFO     escape time = 2024-12-29 21:52:29
+
+29-12-2024 19:56:28 INFO     Epoch 18, train_loss : 0.004143687430769205
+29-12-2024 19:56:28 INFO     Epoch 18, train_acc : 0.9939236111111112
+29-12-2024 19:56:29 INFO     Epoch 18, test_loss : 0.016388866326047316
+29-12-2024 19:56:29 INFO     Epoch 18, test_acc : 0.8993055555555556
+29-12-2024 19:56:29 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:29 INFO     epoch = 18, train_loss = 0.0041, train_acc = 0.9939, test_loss = 0.0164, test_acc = 0.8993, max_test_acc = 0.9132
+29-12-2024 19:56:29 INFO     train speed = 236.5247 images/s, test speed = 185.4112 images/s
+29-12-2024 19:56:29 INFO     escape time = 2024-12-29 21:49:53
+
+29-12-2024 19:56:35 INFO     Epoch 19, train_loss : 0.006506720816509591
+29-12-2024 19:56:35 INFO     Epoch 19, train_acc : 0.9670138888888888
+29-12-2024 19:56:36 INFO     Epoch 19, test_loss : 0.06957098758882946
+29-12-2024 19:56:36 INFO     Epoch 19, test_acc : 0.5729166666666666
+29-12-2024 19:56:37 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:37 INFO     epoch = 19, train_loss = 0.0065, train_acc = 0.9670, test_loss = 0.0696, test_acc = 0.5729, max_test_acc = 0.9132
+29-12-2024 19:56:37 INFO     train speed = 219.7689 images/s, test speed = 179.9282 images/s
+29-12-2024 19:56:37 INFO     escape time = 2024-12-29 21:57:04
+
+29-12-2024 19:56:42 INFO     Epoch 20, train_loss : 0.009163698207380043
+29-12-2024 19:56:42 INFO     Epoch 20, train_acc : 0.9670138888888888
+29-12-2024 19:56:43 INFO     Epoch 20, test_loss : 0.018536573689844873
+29-12-2024 19:56:43 INFO     Epoch 20, test_acc : 0.875
+29-12-2024 19:56:44 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:44 INFO     epoch = 20, train_loss = 0.0092, train_acc = 0.9670, test_loss = 0.0185, test_acc = 0.8750, max_test_acc = 0.9132
+29-12-2024 19:56:44 INFO     train speed = 222.4398 images/s, test speed = 196.9639 images/s
+29-12-2024 19:56:44 INFO     escape time = 2024-12-29 21:53:32
+
+29-12-2024 19:56:49 INFO     Epoch 21, train_loss : 0.0041591547714132406
+29-12-2024 19:56:49 INFO     Epoch 21, train_acc : 0.9939236111111112
+29-12-2024 19:56:50 INFO     Epoch 21, test_loss : 0.01867549079987738
+29-12-2024 19:56:50 INFO     Epoch 21, test_acc : 0.8645833333333334
+29-12-2024 19:56:50 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:50 INFO     epoch = 21, train_loss = 0.0042, train_acc = 0.9939, test_loss = 0.0187, test_acc = 0.8646, max_test_acc = 0.9132
+29-12-2024 19:56:50 INFO     train speed = 229.9021 images/s, test speed = 189.6422 images/s
+29-12-2024 19:56:50 INFO     escape time = 2024-12-29 21:51:33
+
+29-12-2024 19:56:55 INFO     Epoch 22, train_loss : 0.002814334261024164
+29-12-2024 19:56:55 INFO     Epoch 22, train_acc : 0.9965277777777778
+29-12-2024 19:56:57 INFO     Epoch 22, test_loss : 0.030062524912257988
+29-12-2024 19:56:57 INFO     Epoch 22, test_acc : 0.8125
+29-12-2024 19:56:58 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:56:58 INFO     epoch = 22, train_loss = 0.0028, train_acc = 0.9965, test_loss = 0.0301, test_acc = 0.8125, max_test_acc = 0.9132
+29-12-2024 19:56:58 INFO     train speed = 230.3063 images/s, test speed = 194.5695 images/s
+29-12-2024 19:56:58 INFO     escape time = 2024-12-29 22:03:27
+
+29-12-2024 19:57:03 INFO     Epoch 23, train_loss : 0.0034533491254680687
+29-12-2024 19:57:03 INFO     Epoch 23, train_acc : 0.9861111111111112
+29-12-2024 19:57:05 INFO     Epoch 23, test_loss : 0.02038080146950152
+29-12-2024 19:57:05 INFO     Epoch 23, test_acc : 0.8819444444444444
+29-12-2024 19:57:05 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:05 INFO     epoch = 23, train_loss = 0.0035, train_acc = 0.9861, test_loss = 0.0204, test_acc = 0.8819, max_test_acc = 0.9132
+29-12-2024 19:57:05 INFO     train speed = 228.9419 images/s, test speed = 175.4781 images/s
+29-12-2024 19:57:05 INFO     escape time = 2024-12-29 21:55:16
+
+29-12-2024 19:57:10 INFO     Epoch 24, train_loss : 0.0039992486126720905
+29-12-2024 19:57:10 INFO     Epoch 24, train_acc : 0.9869791666666666
+29-12-2024 19:57:12 INFO     Epoch 24, test_loss : 0.026216214212278526
+29-12-2024 19:57:12 INFO     Epoch 24, test_acc : 0.8333333333333334
+29-12-2024 19:57:12 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:12 INFO     epoch = 24, train_loss = 0.0040, train_acc = 0.9870, test_loss = 0.0262, test_acc = 0.8333, max_test_acc = 0.9132
+29-12-2024 19:57:12 INFO     train speed = 220.3787 images/s, test speed = 191.0690 images/s
+29-12-2024 19:57:12 INFO     escape time = 2024-12-29 21:54:58
+
+29-12-2024 19:57:17 INFO     Epoch 25, train_loss : 0.003329566731635067
+29-12-2024 19:57:17 INFO     Epoch 25, train_acc : 0.9921875
+29-12-2024 19:57:19 INFO     Epoch 25, test_loss : 0.012804631040328078
+29-12-2024 19:57:19 INFO     Epoch 25, test_acc : 0.9097222222222222
+29-12-2024 19:57:19 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:19 INFO     epoch = 25, train_loss = 0.0033, train_acc = 0.9922, test_loss = 0.0128, test_acc = 0.9097, max_test_acc = 0.9132
+29-12-2024 19:57:19 INFO     train speed = 230.5325 images/s, test speed = 191.3907 images/s
+29-12-2024 19:57:19 INFO     escape time = 2024-12-29 21:51:12
+
+29-12-2024 19:57:24 INFO     Epoch 26, train_loss : 0.0022066827514208853
+29-12-2024 19:57:24 INFO     Epoch 26, train_acc : 0.9965277777777778
+29-12-2024 19:57:26 INFO     Epoch 26, test_loss : 0.010089476489358477
+29-12-2024 19:57:26 INFO     Epoch 26, test_acc : 0.9340277777777778
+29-12-2024 19:57:26 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:57:26 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:26 INFO     epoch = 26, train_loss = 0.0022, train_acc = 0.9965, test_loss = 0.0101, test_acc = 0.9340, max_test_acc = 0.9340
+29-12-2024 19:57:26 INFO     train speed = 229.6506 images/s, test speed = 195.8475 images/s
+29-12-2024 19:57:26 INFO     escape time = 2024-12-29 21:56:53
+
+29-12-2024 19:57:31 INFO     Epoch 27, train_loss : 0.0026683445192045635
+29-12-2024 19:57:31 INFO     Epoch 27, train_acc : 0.9930555555555556
+29-12-2024 19:57:33 INFO     Epoch 27, test_loss : 0.024430468678474426
+29-12-2024 19:57:33 INFO     Epoch 27, test_acc : 0.8368055555555556
+29-12-2024 19:57:33 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:33 INFO     epoch = 27, train_loss = 0.0027, train_acc = 0.9931, test_loss = 0.0244, test_acc = 0.8368, max_test_acc = 0.9340
+29-12-2024 19:57:33 INFO     train speed = 236.6737 images/s, test speed = 159.3525 images/s
+29-12-2024 19:57:33 INFO     escape time = 2024-12-29 21:54:40
+
+29-12-2024 19:57:38 INFO     Epoch 28, train_loss : 0.003258617562500553
+29-12-2024 19:57:38 INFO     Epoch 28, train_acc : 0.9887152777777778
+29-12-2024 19:57:40 INFO     Epoch 28, test_loss : 0.015190209572513899
+29-12-2024 19:57:40 INFO     Epoch 28, test_acc : 0.9097222222222222
+29-12-2024 19:57:40 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:40 INFO     epoch = 28, train_loss = 0.0033, train_acc = 0.9887, test_loss = 0.0152, test_acc = 0.9097, max_test_acc = 0.9340
+29-12-2024 19:57:40 INFO     train speed = 231.4474 images/s, test speed = 173.8629 images/s
+29-12-2024 19:57:40 INFO     escape time = 2024-12-29 21:53:50
+
+29-12-2024 19:57:46 INFO     Epoch 29, train_loss : 0.002291276501232965
+29-12-2024 19:57:46 INFO     Epoch 29, train_acc : 0.9965277777777778
+29-12-2024 19:57:47 INFO     Epoch 29, test_loss : 0.009302482940256596
+29-12-2024 19:57:47 INFO     Epoch 29, test_acc : 0.9409722222222222
+29-12-2024 19:57:47 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:57:48 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:48 INFO     epoch = 29, train_loss = 0.0023, train_acc = 0.9965, test_loss = 0.0093, test_acc = 0.9410, max_test_acc = 0.9410
+29-12-2024 19:57:48 INFO     train speed = 218.8217 images/s, test speed = 190.0793 images/s
+29-12-2024 19:57:48 INFO     escape time = 2024-12-29 22:02:28
+
+29-12-2024 19:57:53 INFO     Epoch 30, train_loss : 0.0016369471106574768
+29-12-2024 19:57:53 INFO     Epoch 30, train_acc : 0.9982638888888888
+29-12-2024 19:57:55 INFO     Epoch 30, test_loss : 0.007314787711948156
+29-12-2024 19:57:55 INFO     Epoch 30, test_acc : 0.9583333333333334
+29-12-2024 19:57:55 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:57:55 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:57:55 INFO     epoch = 30, train_loss = 0.0016, train_acc = 0.9983, test_loss = 0.0073, test_acc = 0.9583, max_test_acc = 0.9583
+29-12-2024 19:57:55 INFO     train speed = 219.0424 images/s, test speed = 166.3044 images/s
+29-12-2024 19:57:55 INFO     escape time = 2024-12-29 22:05:15
+
+29-12-2024 19:58:01 INFO     Epoch 31, train_loss : 0.0016860718994090955
+29-12-2024 19:58:01 INFO     Epoch 31, train_acc : 0.9973958333333334
+29-12-2024 19:58:02 INFO     Epoch 31, test_loss : 0.006471451630608903
+29-12-2024 19:58:02 INFO     Epoch 31, test_acc : 0.9583333333333334
+29-12-2024 19:58:03 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:58:03 INFO     epoch = 31, train_loss = 0.0017, train_acc = 0.9974, test_loss = 0.0065, test_acc = 0.9583, max_test_acc = 0.9583
+29-12-2024 19:58:03 INFO     train speed = 220.0460 images/s, test speed = 182.4194 images/s
+29-12-2024 19:58:03 INFO     escape time = 2024-12-29 21:56:23
+
+29-12-2024 19:58:08 INFO     Epoch 32, train_loss : 0.001335632036595295
+29-12-2024 19:58:08 INFO     Epoch 32, train_acc : 0.9991319444444444
+29-12-2024 19:58:10 INFO     Epoch 32, test_loss : 0.007105486027689444
+29-12-2024 19:58:10 INFO     Epoch 32, test_acc : 0.9548611111111112
+29-12-2024 19:58:10 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:58:10 INFO     epoch = 32, train_loss = 0.0013, train_acc = 0.9991, test_loss = 0.0071, test_acc = 0.9549, max_test_acc = 0.9583
+29-12-2024 19:58:10 INFO     train speed = 215.3489 images/s, test speed = 182.3571 images/s
+29-12-2024 19:58:10 INFO     escape time = 2024-12-29 21:58:40
+
+29-12-2024 19:58:15 INFO     Epoch 33, train_loss : 0.0011889803507882687
+29-12-2024 19:58:15 INFO     Epoch 33, train_acc : 1.0
+29-12-2024 19:58:17 INFO     Epoch 33, test_loss : 0.00517410254623327
+29-12-2024 19:58:17 INFO     Epoch 33, test_acc : 0.9618055555555556
+29-12-2024 19:58:17 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:58:17 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:58:17 INFO     epoch = 33, train_loss = 0.0012, train_acc = 1.0000, test_loss = 0.0052, test_acc = 0.9618, max_test_acc = 0.9618
+29-12-2024 19:58:17 INFO     train speed = 225.3387 images/s, test speed = 164.7258 images/s
+29-12-2024 19:58:17 INFO     escape time = 2024-12-29 22:02:18
+
+29-12-2024 19:58:23 INFO     Epoch 34, train_loss : 0.0011424432256414245
+29-12-2024 19:58:23 INFO     Epoch 34, train_acc : 1.0
+29-12-2024 19:58:24 INFO     Epoch 34, test_loss : 0.0041419754011763465
+29-12-2024 19:58:24 INFO     Epoch 34, test_acc : 0.9826388888888888
+29-12-2024 19:58:25 INFO     Best checkpoint saved : ./logs/29122024_19_54_00/checkpoint_max.pth
+29-12-2024 19:58:25 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:58:25 INFO     epoch = 34, train_loss = 0.0011, train_acc = 1.0000, test_loss = 0.0041, test_acc = 0.9826, max_test_acc = 0.9826
+29-12-2024 19:58:25 INFO     train speed = 217.4820 images/s, test speed = 181.6067 images/s
+29-12-2024 19:58:25 INFO     escape time = 2024-12-29 22:03:05
+
+29-12-2024 19:58:30 INFO     Epoch 35, train_loss : 0.0011388887327888773
+29-12-2024 19:58:30 INFO     Epoch 35, train_acc : 1.0
+29-12-2024 19:58:32 INFO     Epoch 35, test_loss : 0.003827557329916292
+29-12-2024 19:58:32 INFO     Epoch 35, test_acc : 0.9826388888888888
+29-12-2024 19:58:32 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:58:32 INFO     epoch = 35, train_loss = 0.0011, train_acc = 1.0000, test_loss = 0.0038, test_acc = 0.9826, max_test_acc = 0.9826
+29-12-2024 19:58:32 INFO     train speed = 222.5567 images/s, test speed = 188.2188 images/s
+29-12-2024 19:58:32 INFO     escape time = 2024-12-29 21:54:22
+
+29-12-2024 19:58:37 INFO     Epoch 36, train_loss : 0.001164044641579191
+29-12-2024 19:58:37 INFO     Epoch 36, train_acc : 0.9991319444444444
+29-12-2024 19:58:39 INFO     Epoch 36, test_loss : 0.006332343702928888
+29-12-2024 19:58:39 INFO     Epoch 36, test_acc : 0.9548611111111112
+29-12-2024 19:58:39 INFO     Latest checkpoint saved : checkpoint_latest.pth
+29-12-2024 19:58:39 INFO     epoch = 36, train_loss = 0.0012, train_acc = 0.9991, test_loss = 0.0063, test_acc = 0.9549, max_test_acc = 0.9826
+29-12-2024 19:58:39 INFO     train speed = 235.5697 images/s, test speed = 160.9086 images/s
+29-12-2024 19:58:39 INFO     escape time = 2024-12-29 21:54:15
