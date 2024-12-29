@@ -99,8 +99,8 @@ class temporal_processor(nn.Module):
         super(temporal_processor, self).__init__()
         self.fc1 = nn.Linear(input_dim, hidden_dim)
         #self.lif = neuron.LIFNode(tau=2.0)
-        self.lif = PLIFNode(init_tau=2.0)
-        #self.lif = ResidualSpikingLayer(hidden_dim) # For residual spiking layers
+        #self.lif = PLIFNode(init_tau=2.0)
+        self.lif = ResidualSpikingLayer(hidden_dim) # For residual spiking layers
         self.T = T  # Number of timesteps
 
     def forward(self, x):
