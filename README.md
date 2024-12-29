@@ -13,32 +13,16 @@ Code for the paper: **Simple Transformer with Single Leaky Neuron for Event Visi
 
 ## Installation
 
-1. Install [spikingjelly](https://github.com/fangwei123456/spikingjelly)
-
-**Install the latest developing version from the source code**:
-
-From [GitHub](https://github.com/fangwei123456/spikingjelly):
-```bash
-git clone https://github.com/fangwei123456/spikingjelly.git
-cd spikingjelly
-python setup.py install
-```
-
-2. Install the remaining dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
----
+* Install [spikingjelly](https://github.com/fangwei123456/spikingjelly) from Github only.
+* Install rest of the packages as mentioned in requirements.txt .
 
 ## Dataset Setup
 
-1. Download the datasets manually from the [spikingjelly datasets repository](https://github.com/fangwei123456/spikingjelly/tree/master/spikingjelly/datasets):
+* Download the datasets manually from the [spikingjelly datasets repository](https://github.com/fangwei123456/spikingjelly/tree/master/spikingjelly/datasets):
    - DVS Gesture
    - N-MNIST
    - CIFAR10-DVS
-
-2. Place the downloaded datasets in the `event_vision/datasets/` folder. The code will automatically preprocess the datasets into frame-based versions during execution.
+* Place the downloaded datasets in the `event_vision/datasets/` folder. The code will automatically preprocess the datasets into frame-based versions during execution.
 
 ---
 
