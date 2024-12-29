@@ -9,7 +9,7 @@
 
 29-12-2024 19:54:00 INFO     29122024_19_54_00
 29-12-2024 19:54:00 INFO     Logs at : ./logs/29122024_19_54_00
-29-12-2024 19:54:00 INFO     Namespace(T=20, device='cuda:1', b=64, epochs=1024, j=4, channels=128, data_dir='/data01/ucidata/event_vision/datasets/dvsgesture/', out_dir='./logs', resume=None, amp=False, cupy=False, init_tau=2.0, use_plif=True, alpha_learnable=False, use_max_pool=True, number_layer=5, detach_reset=True, opt='adam', lr=0.001, momentum=0.9, lr_scheduler='CosALR', step_size=32, gamma=0.1, T_max=64, model_name='simple_transformer', dataset='dvsgesture', seed=2020)
+29-12-2024 19:54:00 INFO     Namespace(T=20, device='cuda:1', b=64, epochs=1024, j=4, channels=128, data_dir='event_vision/datasets/dvsgesture/', out_dir='./logs', resume=None, amp=False, cupy=False, init_tau=2.0, use_plif=True, alpha_learnable=False, use_max_pool=True, number_layer=5, detach_reset=True, opt='adam', lr=0.001, momentum=0.9, lr_scheduler='CosALR', step_size=32, gamma=0.1, T_max=64, model_name='simple_transformer', dataset='dvsgesture', seed=2020)
 29-12-2024 19:54:00 INFO     DVS Gesture Dataset : 11 classes
 29-12-2024 19:54:00 INFO     train samples = 1176, test samples = 288
 29-12-2024 19:54:00 INFO     total samples = 1464
