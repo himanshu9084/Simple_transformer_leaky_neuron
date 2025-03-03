@@ -37,12 +37,14 @@ Code for the paper: **Simple Transformer with Single Leaky Neuron for Event Visi
 ## Citation
 
 If you find this code useful in your research, please consider citing our paper:
-```bibtex
-@inproceedings{your_paper_reference,
-  title={Simple Transformer with Single Leaky Neuron for Event Vision},
-  author={Your Name and Co-Authors},
-  booktitle={Proceedings of EVGEN: Event-based Vision in the Era of Generative AI Workshop, WACV},
-  year={2025}
+```
+@InProceedings{Kumar_2025_WACV,
+    author    = {Kumar, Himanshu and Konkar, Aniket},
+    title     = {Simple Transformer with Single Leaky Neuron for Event Vision},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV) Workshops},
+    month     = {February},
+    year      = {2025},
+    pages     = {928-934}
 }
 ```
 
